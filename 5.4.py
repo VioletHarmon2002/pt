@@ -4,4 +4,4 @@ for i in range(5):
     cities.append(name_city)
 
 for n in cities:
-    print (n)
+    print (n

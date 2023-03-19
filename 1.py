@@ -1,7 +1,0 @@
-
-
-
-
-
-
-leviskät = float
