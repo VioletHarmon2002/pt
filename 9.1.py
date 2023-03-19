@@ -1,9 +1,11 @@
-classCar:
-def init(self, registration_number, max_speed):
-self.registration_number = registration_number
-self.max_speed = max_speed
-self.current_speed = 0
-self.distance_traveled = 0
+
+
+class Car:
+    def init(self, registration_number, max_speed):
+        self.registration_number = registration_number
+        self.max_speed = max_speed
+        self.current_speed = 0
+        self.distance_traveled = 0
 
 
 new_car = Car("ABC-123", 142)

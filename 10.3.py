@@ -24,11 +24,11 @@ class Elevator:
             for i in range(floor, self.current_floor):
                 self.floor_down()
 
-building class:
+class Building:
     def init(self, bottom_floor, top_floor, num_elevators):
         self.bottom_floor = bottom_floor
         self.top_floor = top_floor
-        self.elevators = [Elevator(bottom_floor, topfloor) for in range(num_elevators)]
+        self.elevators = [Elevator(bottom_floor, top_floor) for  in range(num_elevators)]
 
     def run_elevator(self, elevator_number, destination_floor):
         elevator = self.elevators[elevator_number]
@@ -37,6 +37,7 @@ building class:
     def fire_alarm(self):
         for elevator in self.elevators:
             elevator.go_to_floor(self.bottom_floor)
+
 
 
 my_building = Building(1, 20, 3)
