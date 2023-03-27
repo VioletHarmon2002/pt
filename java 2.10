@@ -1,0 +1,29 @@
+let candidates = [];
+
+let numOfCandidates = prompt("Enter the number of candidates:");
+
+for (let i = 1; i <= numOfCandidates; i++) {
+  let candidateName = prompt(`Name for candidate ${i}:`);
+  candidates.push({ name: candidateName, votes: 0 });
+}
+
+let numOfVoters = prompt("Enter the number of voters:");
+
+for (let i = 1; i <= numOfVoters; i++) {
+  let vote = prompt(`Vote ${i}:`);
+  if (vote === "") {
+    continue;
+  }
+  let candidate = candidates.find((c) => c.name === vote);
+  if (candidate) {
+    candidate.votes++;
+  }
+}
+
+candidates.sort((a, b) => b.votes - a.votes);
+
+console.log(`The winner is ${candidates[0].name} with ${candidates[0].votes} votes.`);
+console.log("Results:");
+for (let i = 0; i < candidates.length; i++) {
+  console.log(`${candidates[i].name}: ${candidates[i].votes} votes`);
+}
