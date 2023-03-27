@@ -1,0 +1,10 @@
+const numbers = [];
+let number = Number(prompt("Enter a number:"));
+while (!numbers.includes(number)) {
+  numbers.push(number);
+  number = Number(prompt("Enter another number:"));
+}
+
+numbers.sort((a, b) => a - b);
+
+console.log(numbers);
