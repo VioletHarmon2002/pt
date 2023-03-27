@@ -1,0 +1,107 @@
+// Task 1
+let numbers = [];
+for (let i = 0; i < 5; i++) {
+  let num = prompt(`Enter number ${i + 1}:`);
+  numbers.push(num);
+}
+for (let i = numbers.length - 1; i >= 0; i--) {
+  console.log(numbers[i]);
+}
+
+// Task 2
+let numParticipants = prompt("Enter number of participants:");
+let participants = [];
+for (let i = 0; i < numParticipants; i++) {
+  let name = prompt(`Enter name for participant ${i + 1}:`);
+  participants.push(name);
+}
+participants.sort();
+let list = document.createElement("ol");
+for (let i = 0; i < participants.length; i++) {
+  let listItem = document.createElement("li");
+  listItem.textContent = participants[i];
+  list.appendChild(listItem);
+}
+document.body.appendChild(list);
+
+// Task 3
+let dogs = [];
+for (let i = 0; i < 6; i++) {
+  let name = prompt(`Enter name for dog ${i + 1}:`);
+  dogs.push(name);
+}
+dogs.sort().reverse();
+let ul = document.createElement("ul");
+for (let i = 0; i < dogs.length; i++) {
+  let li = document.createElement("li");
+  li.textContent = dogs[i];
+  ul.appendChild(li);
+}
+document.body.appendChild(ul);
+
+// Task 4
+let numList = [];
+let num = prompt("Enter a number:");
+while (num != 0) {
+  numList.push(num);
+  num = prompt("Enter another number:");
+}
+numList.sort((a, b) => b - a);
+console.log(numList);
+
+// Task 5
+let givenNums = [];
+let newNum = prompt("Enter a number:");
+while (!givenNums.includes(newNum)) {
+  givenNums.push(newNum);
+  newNum = prompt("Enter another number:");
+}
+givenNums.sort((a, b) => a - b);
+console.log(givenNums);
+
+// Task 6
+function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+let rollList = document.createElement("ul");
+let roll = rollDice();
+while (roll != 6) {
+  let listItem = document.createElement("li");
+  listItem.textContent = roll;
+  rollList.appendChild(listItem);
+  roll = rollDice();
+}
+let listItem = document.createElement("li");
+listItem.textContent = roll;
+rollList.appendChild(listItem);
+document.body.appendChild(rollList);
+
+// Task 7
+function rollCustomDice(numSides) {
+  return Math.floor(Math.random() * numSides) + 1;
+}
+let maxNum = prompt("Enter the maximum number on the dice:");
+let rollList2 = document.createElement("ul");
+let roll2 = rollCustomDice(maxNum);
+while (roll2 != maxNum) {
+  let listItem = document.createElement("li");
+  listItem.textContent = roll2;
+  rollList2.appendChild(listItem);
+  roll2 = rollCustomDice(maxNum);
+}
+let listItem2 = document.createElement("li");
+listItem2.textContent = roll2;
+rollList2.appendChild(listItem2);
+document.body.appendChild(rollList2);
+
+// Task 8
+function concat(arr) {
+  let result = "";
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i];
+  }
+  return result;
+}
+let names = ["Johnny", "DeeDee", "Joey", "Marky"];
+let concatenated = concat(names);
+console.log(concatenated);
