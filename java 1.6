@@ -1,0 +1,12 @@
+function rollDice() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+document.write("<ul>");
+let roll = rollDice();
+while (roll !== 6) {
+  document.write(`<li>${roll}</li>`);
+  roll = rollDice();
+}
+document.write(`<li>${roll}</li>`);
+document.write("</ul>");
