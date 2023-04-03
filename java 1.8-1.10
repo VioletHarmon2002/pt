@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Combined Program</title>
+</head>
+<body>
+
+	<script>
+
+		// Task 1: Leap Years
+
+		// prompt user for start and end year
+		let startYear = parseInt(prompt("Enter start year:"));
+		let endYear = parseInt(prompt("Enter end year:"));
+
+		// loop through years and print leap years
+		let leapYears = [];
+		for (let year = startYear; year <= endYear; year++) {
+			if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+				leapYears.push(year);
+			}
+		}
+
+		// print leap years in unordered list
+		let leapYearsList = "<ul>";
+		for (let i = 0; i < leapYears.length; i++) {
+			leapYearsList += "<li>" + leapYears[i] + "</li>";
+		}
+		leapYearsList += "</ul>";
+		document.write("<h3>Leap Years:</h3>" + leapYearsList);
+
+		// Task 2: Prime Number
+
+		// prompt user for number to check
+		let number = parseInt(prompt("Enter a number:"));
+
+		// check if number is prime
+		let isPrime = true;
+		for (let i = 2; i < number; i++) {
+			if (number % i === 0) {
+				isPrime = false;
+				break;
+			}
+		}
+
+		// print result
+		if (isPrime) {
+			document.write("<h3>" + number + " is a prime number.</h3>");
+		} else {
+			document.write("<h3>" + number + " is not a prime number.</h3>");
+		}
+
+		// Task 3: Dice Probability
+
+		// prompt user for number of dice and sum of eyes
+		let numDice = parseInt(prompt("Enter number of dice:"));
+		let targetSum = parseInt(prompt("Enter target sum:"));
+
+		// simulate dice rolls and count number of times target sum is reached
+		let numSuccesses = 0;
+		let numRolls = 10000;
+		for (let i = 0; i < numRolls; i++) {
+			let sum = 0;
+			for (let j = 0; j < numDice; j++) {
+				sum += Math.floor(Math.random() * 6) + 1;
+			}
+			if (sum === targetSum) {
+				numSuccesses++;
+			}
+		}
+
+		// calculate and print probability
+		let probability = numSuccesses / numRolls * 100;
+		document.write("<h3>Probability to get sum " + targetSum + " with " + numDice + " dice is " + probability.toFixed(2) + "%.</h3>");
+
+	</script>
+
+</body>
+</html>
