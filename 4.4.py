@@ -1,33 +1,31 @@
-# Kirjoita peli, jossa tietokone arpoo kokonaisluvun väliltä 1..10. Kone arvuuttelee lukua pelaajalta siihen asti, kunnes tämä arvaa oikein. Kunkin arvauksen jälkeen ohjelma tulostaa tekstin Liian suuri arvaus, Liian pieni arvaus tai Oikein. Huomaa, että tietokone ei saa vaihtaa lukuaan arvauskertojen välissä.
+# Kirjoita peli, jossa tietokone arpoo kokonaisluvun väliltä 1..10.
+# Kone arvuuttelee lukua pelaajalta siihen asti, kunnes tämä arvaa oikein.
+# Kunkin arvauksen jälkeen ohjelma tulostaa tekstin Liian suuri arvaus, Liian pieni arvaus tai Oikein.
+# Huomaa, että tietokone ei saa vaihtaa lukuaan arvauskertojen välissä.
 
 import random
 
-guessesTaken = 0
 
-print("Arvoo numero 1-10")
+secret_number = random.randint(1, 10)
 
-myName = input()
-
-number = random.randint(1, 10)
+print("Tervetuloa peliin! Arvaa numero väliltä 1-10.")
 
 
-while guessesTaken < 1:
-     print("Arvoo numero")
-     guess = input()
-     guess = int(guess)
-     guessesTaken = guessesTaken + 0
+attempts = 0
+
+while True:
+    try:
+
+        guess = int(input("Anna arvauksesi: "))
+        attempts += 1
 
 
-     if guess < number:
-         print("Liian pieni arvaus.")
-
-
-     if guess > number:
-         print("Liian suuri arvaus.")
-
-
-     if guess == number:
-         break
-
-if guess == number:
-     print("Oikein")
+        if guess == secret_number:
+            print(f"Oikein! Arvasit numeron {secret_number} за {attempts} попыток.")
+            break
+        elif guess < secret_number:
+            print("Liian pieni arvaus.")
+        else:
+            print("Liian suuri arvaus.")
+    except ValueError:
+        print("Virheellinen syöte. Введите целое число в диапазоне от 1 до 10.")

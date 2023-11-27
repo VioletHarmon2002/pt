@@ -1,9 +1,23 @@
 import random
-a = int(input("How many dice to roll?  "))
-sm = 0
-for number_roll in range(1, a , 1):
-    number = random.randint(1,6)
-    sm += number
-print(" sum of the numbers", sm)
+
+results = []
+
+times = input("How many times to roll? ")
+
+if times != "":
+    times = int(times)
+
+    for _ in range(times):
+        roll = random.randint(1, 6)
+        results.append(roll)
+
+    total = sum(results)
+    print("Results:", results)
+    print("Sum of the rolled numbers:", total)
+else:
+    print("No dice rolled.")
+
+
+
 
 
